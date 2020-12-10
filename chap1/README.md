@@ -14,13 +14,20 @@
   - [Environment model](#environment-model)
 - [Challenges](#challenges)
   - [Exploration v Exploitation](#exploration-v-exploitation)
-  - [](#)
+- [Evolutionary methods](#evolutionary-methods)
+  - [Evolutionary or Reinforcement Learning?](#evolutionary-or-reinforcement-learning)
+    - [Policy evaluation & Updating](#policy-evaluation--updating)
+    - [Example: Tic-Tac-Toe](#example-tic-tac-toe)
+  - [**Evolutionary Method**](#evolutionary-method)
+  - [**Reinforcement Learning**](#reinforcement-learning)
 
 # What is Reinforcement Learning?
 
 ## Brief introduction
 
 In itself, Reinforcement Learning is simultaneously a problem, a class of solution methods that would work well on the problem and the field that studies said problem and solution methods.
+
+Reinforcement Learning relies heavily on the concept of the state whether it be as input to the policy and value function or as both input and output to and from the model. 
 
 It is a computational approach to learning from interaction whereby the end goal is to maximise the numerical reward the agent receives and is much more focused on goal-directed learning from interaction as compared to other approaches to machine learning such as Neural Networks.
 
@@ -128,4 +135,54 @@ I.e. if say at the start, we give the agent a 100% chance of exploring, we can s
 
 But, this leads us to another problem. How do we determine what percentage to decrease by and for how many time steps? The agent could learn faster or learn slower depending on the environment and task..
 
-## 
+# Evolutionary methods 
+
+Evolutionary methods are a type of Reinforcement Learning that does not involve estimating value functions. It works by applying multiple static policies that each interact with a separate instance of the environment over an extended period of time.
+
+An analogous way of looking at evolutionary methods is to compare it to biological evolution in organisms. Even if an organism does not learn in its lifetime, the species as a whole evolves after hundreds of thousands of lifetimes.
+
+Evolutionary methods are effective in certain scenarios:
+1. If the policy space is sufficiently small, or
+2. The policy space can be structured such that good policies are easily located, or
+3. There is a lot of time available for the search
+
+## Evolutionary or Reinforcement Learning?
+
+If the agent is unable to sense the entirety of the environment it is in, evolutionary methods have an advantage over Reinforcement Learning.
+
+The problem of Evolutionary methods lie in the fact that Evolutionary methods ignore much of the useful structure of Reinforcement Learning. 
+
+Evolutionary methods do not make use of the fact that each policy is actually a function from states to actions and do not keep track of the various states and actions previously taken during the agent's lifetime.
+
+### Policy evaluation & Updating
+
+Like that of Reinforcement Learning methods, Evolutionary methods also make use of policies to decide which action to take in a given state.
+
+The difference however, comes in the fact that Evolutionary methods utilises a fixed policy as it plays multiple games and determines the usefulness of the policy based on the number of times the goal is reached, meaning that only the final outcome matters. Afterwards, another policy is selected and the model repeats the above steps.
+
+In contrast, in Reinforcement Learning, each individual state is evaluated and the policy is updated with every time step.
+
+### Example: Tic-Tac-Toe
+
+**Evolutionary Method**
+---
+An evolutionary method applied to this problem would directly search the space for each possible policy, in this context, a rule that tells the player what move to make for each different state, and select the one with the highest probability of winning.
+
+An estimate of this probability would first be obtained via playing multiple games against an opponent and evaluating the state of the board at each move made by either the opponent or the player itself. 
+
+**Reinforcement Learning**
+---
+A Reinforcement Learning method applied to this problem would be approached first set up a table of numbers, representing each possible state of the game with each number indicating the latest estimate ( value ) of the probability of the agent winning the game if that particular state is reached.
+
+Then, similarly to Evolutionary Methods, the agent plays multiple hames against an opponent. The policy in this case however, would be to select the move that would result in the state with the highest value, i.e. for the agent to move greedily ( exploitation ).
+
+However, the agent can also occasionally explore in order to allow the agent to experience a larger variety of states that it might otherwise never see if it always moves greedily. 
+
+As the agent selects an action, the value of its previous state is then updated and increasingly gets closer to the value of the next state.
+
+$$V(S_t) = V(S_t) + \alpha[V(S_{t+1}) - V(S_t)]$$
+
+* $S_t$ denotes the state before the greedy move,
+* $S_{t+1}$ denotes the state after the greedy move,
+* $V(S_t)$ is the function denoting the value of the state
+* $\alpha$ is a small positive fraction called the step-size parameter, or the learning rate.
