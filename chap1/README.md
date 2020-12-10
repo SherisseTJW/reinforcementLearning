@@ -180,9 +180,4 @@ However, the agent can also occasionally explore in order to allow the agent to 
 
 As the agent selects an action, the value of its previous state is then updated and increasingly gets closer to the value of the next state.
 
-$$V(S_t) = V(S_t) + \alpha[V(S_{t+1}) - V(S_t)]$$
-
-* $S_t$ denotes the state before the greedy move,
-* $S_{t+1}$ denotes the state after the greedy move,
-* $V(S_t)$ is the function denoting the value of the state
-* $\alpha$ is a small positive fraction called the step-size parameter, or the learning rate.
+![updateValFunc_eqn](./img/updateValueFunc.PNG)
