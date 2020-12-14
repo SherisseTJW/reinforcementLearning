@@ -1,0 +1,9 @@
+# Other improvements
+
+Can you think of other ways to improve the reinforcement learning player? Can you think of any better way to solve the tic-tac-toe problem as posed?
+
+---
+
+One possible way to improve the reinforcement learning player may be to, instead of adjusting the step-size parameter over time, adjust the exploration rate instead. In this way, we can ensure that the reinforcement learning player continues to explore but also performs an increasing amount of greedy actions as it finds more and more different possible move. After all, there is a limit to the number of possible moves that the player can make, especially in this context whereby the player is attempting to win as many games of tic-tac-toe as possible. If the player has already tried a large majority of all the possible moves it can make, or maybe even tried every single possible move, it makes little sense for the agent to continue exploring when it has already likely found the most efficient method, if there is such a thing.
+
+Another possible way may be to allow the agent to learn how to influence things such that the opponents themselves help contribute to taking the game to the best possible state for the player to win. After all, in a real world application, it is difficult to accurately predict each and every move that a human opponent can make as they do not always make the best or the worst possible move. If the agent is able to learn how a human opponent may react to certain moves, it will be easier for it to win as it can influence the opponent to make moves that leads it to a better state. This is especially true for larger scenarios, such as if playing chess or poker where there is a larger number of possible moves that can be made.

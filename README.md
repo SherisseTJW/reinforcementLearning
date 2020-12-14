@@ -11,4 +11,5 @@ This is a compilation of notes, as well as my answers to any exercises, programm
 Obviously, this cannot be taken as a guide to Reinforcement Learning and there are bound to be errors as I am a mere beginner. This is especially so for the Exercises in each chapter as there are no answers provided in the book. As such, any answers reflect my own thoughts and understanding at the moment that I typed that in. If you are using this to learn RL, you have been warned. 
 
 # Sections
-- [Chapter 1](./chap1)
+- [Chapter 1: Introduction](./chap1/README.md)
+- [Chapter 2: Multi-armed Bandits](./chap2/README.md)

@@ -18,8 +18,8 @@
   - [Evolutionary or Reinforcement Learning?](#evolutionary-or-reinforcement-learning)
     - [Policy evaluation & Updating](#policy-evaluation--updating)
     - [Example: Tic-Tac-Toe](#example-tic-tac-toe)
-  - [**Evolutionary Method**](#evolutionary-method)
-  - [**Reinforcement Learning**](#reinforcement-learning)
+  - [#### **Evolutionary Method**](#-evolutionary-method)
+  - [#### **Reinforcement Learning**](#-reinforcement-learning)
 
 # What is Reinforcement Learning?
 
@@ -29,7 +29,7 @@ In itself, Reinforcement Learning is simultaneously a problem, a class of soluti
 
 Reinforcement Learning relies heavily on the concept of the state whether it be as input to the policy and value function or as both input and output to and from the model. 
 
-It is a computational approach to learning from interaction whereby the end goal is to maximise the numerical reward the agent receives and is much more focused on goal-directed learning from interaction as compared to other approaches to machine learning such as Neural Networks.
+It is a computational approach to learning from interaction that relies heavily on the formal framework of the Markov decision processes whereby the end goal is to maximise the numerical reward the agent receives and is much more focused on goal-directed learning from interaction as compared to other approaches to machine learning such as Neural Networks.
 
 Like other approaches to machine learning, there are many layers to reinforcement learning. The simplest of cases are those whereby actions only directly affect the reward obtained at that point in time. However, if the agent is to be applied in a real-world scenario, it is accepted that actions at one point in time have an impact on the future. 
 
@@ -49,7 +49,7 @@ The problem of Reinforcement Learning can be formalised using ideas from dynamic
 
 More information can be found in [Chapter 3](../chap3) but the general idea is to simply capture the most important aspects of the real-world problem facing the learning agent as it interacts over time with its environment.
 
-These aspects are:
+This framework is intended to be a simple way to represent these important features / aspects of the problem, which are:
 1. Sensation
     - The learning agent must, to a certain extent, be able to sense the state of its environment
 2. Action
@@ -107,6 +107,8 @@ In contrast to rewards, values indicate the long-term desirability of states aft
 
 While rewards are Primary, in the sense that without rewards, there are no values and the purpose of values is to achieve more rewards, values are debatably more important than actions when making and evaluating decisions.
 
+The usage of such a value function distinguishes Reinforcement Learning from [evolutionary methods](#evolutionary-methods).
+
 However, the challenge then comes in obtaining the most accurate estimation of the value functions of each state given that we are unable to determine the reward signal for each future state.
 
 ## Environment model
@@ -137,7 +139,9 @@ But, this leads us to another problem. How do we determine what percentage to de
 
 # Evolutionary methods 
 
-Evolutionary methods are a type of Reinforcement Learning that does not involve estimating value functions. It works by applying multiple static policies that each interact with a separate instance of the environment over an extended period of time.
+Evolutionary methods are a type of Reinforcement Learning that does not involve estimating value functions by searching directly in a policy space, guided by evaluations of entire policies.
+
+It works by applying multiple static policies that each interact with a separate instance of the environment over an extended period of time.
 
 An analogous way of looking at evolutionary methods is to compare it to biological evolution in organisms. Even if an organism does not learn in its lifetime, the species as a whole evolves after hundreds of thousands of lifetimes.
 
@@ -164,13 +168,13 @@ In contrast, in Reinforcement Learning, each individual state is evaluated and t
 
 ### Example: Tic-Tac-Toe
 
-**Evolutionary Method**
+#### **Evolutionary Method**
 ---
 An evolutionary method applied to this problem would directly search the space for each possible policy, in this context, a rule that tells the player what move to make for each different state, and select the one with the highest probability of winning.
 
 An estimate of this probability would first be obtained via playing multiple games against an opponent and evaluating the state of the board at each move made by either the opponent or the player itself. 
 
-**Reinforcement Learning**
+#### **Reinforcement Learning**
 ---
 A Reinforcement Learning method applied to this problem would be approached first set up a table of numbers, representing each possible state of the game with each number indicating the latest estimate ( value ) of the probability of the agent winning the game if that particular state is reached.
 
