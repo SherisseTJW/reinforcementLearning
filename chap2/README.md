@@ -12,6 +12,9 @@
     - [Average Reward](#average-reward)
     - [Discovery, and usage, of Optimal Action](#discovery-and-usage-of-optimal-action)
     - [When to use greedy or near-greedy?](#when-to-use-greedy-or-near-greedy)
+- [Incremental Implementation](#incremental-implementation)
+  - [General form (Word Equation)](#general-form-word-equation)
+- [Psuedocode (Stationary Bandit Algorithm)](#psuedocode-stationary-bandit-algorithm)
 
 # k-armed Bandit Problem
 
@@ -116,3 +119,36 @@ However, if there is no noise at all, i.e. the reward variance is 0, the greedy 
 Of course, this scenario is created under the assumption that the problem is stationary, i.e. the true value of a particular action will not change over time. 
 
 If the problem is non-stationary, then exploration would always be required, if simply to make sure that a previously sub-optimal action does not become more optimal.
+
+# Incremental Implementation
+
+So far, all the action-value methods discussed earlier estimate action values by computing the sample averages of observed rewards up to that timestep. But, how do we ensure that this computation is efficient, specfically, with a constant memory and per-time-step computation?
+
+Let us now consider a scenario whereby *k* = 1, for simplicity's sake. Let *R<sub>i</sub>* denote the reward received after the *i*<super>th</super> selection of this action and *Q<sub>n</sub>* denote the estimate of the action value after it has been selected *n* - 1 times.
+
+![actionValueEstimate_eqn](./img/actionValueEstimate_n-1.PNG)
+
+The first instinct would likely be to maintain a record of all rewards thus far and perform this computation whenever necessary. However, and this is pretty obvious, this is very computationally expensive and the memory required would also be quite large especially when we consider that many problems could have hundreds of possible actions. 
+
+In fact, by simplifying the equation, we can easily devise an incremental formula, hence the name of this section, to update the sample averages while using a much smaller, and constant, computation.
+
+![incrementalImplementation_eqn](./img/incrementalImplementation.PNG)
+**R<sub>n</sub>* refers to the new average of all *n* rewards*
+
+Notice that this formula holds true even for *n* = 1, where we obtain *Q<sub>2</sub>* = *R<sub>1</sub>* for an arbitrary *Q<sub>1</sub>*. Furthermore, memory is only required for *Q<sub>n</sub>* as well as *n*.
+
+## General form (Word Equation)
+
+The general form of the incremental implementation equation, as well as many other formulae that appear later on, is as follows:
+
+*NewEstimate = OldEstimate + StepSize(Target - OldEstimate)*
+
+*(Target - OldEstimate)* refers to an error in the estimate whereby the target is presumed to indicate a desirable direction in which to move, a step in the right direction if you will, regardless of how noisy it may be. As such, the lower the error in estimate, the closer we are to the "Target".
+
+Note also that for the incremental implementation equation, the step size parameter is *1/n*.
+
+# Psuedocode (Stationary Bandit Algorithm)
+
+The below psuedocode is one for a stationary bandit algorithm that uses incrementally computed sample averages and *&epsilon;*-greedy action selection.
+
+![Psuedocode for Stationary Bandit Algorithm](./img/stationaryBandit_psuedo)

@@ -15,7 +15,7 @@ On some timesteps, the *&epsilon;* case may have occurred, causing an action to 
 
 ---
 
-In order to answer the above questions, we first make the assumption that there is no noise in the reward, i.e. reward variance = 0.
+*In order to answer the above questions, we first make the assumption that there is no noise in the reward, i.e. reward variance = 0.*
 
 The only time step whereby the *&epsilon;* case will definitely occur is on the first time step. This is because all the actions have the same initial estimate of 0. In this case, as the agent sees that all the actions have the same action-value estimate, it will pick an action arbitrarily, aka. it **explores**.
 
