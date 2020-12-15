@@ -39,7 +39,7 @@ The Sample-average Method got its name from the fact that each estimate is an av
 
 ![trueValue_eqn](./img/trueValue.PNG)
 
-If the denominator is 0, i.e. *a* has never been selected prior to this, then we define *Q<sub>t</sub>(a)* as some default value, such as 0. Conversely, as the denominator approaches infinity then, by the law of large numbers, *Q<sub>t</sub>(a)* converges to *q<sub>*</sub>(a)*.
+If the denominator is 0, i.e. *a* has never been selected prior to this, then we define *Q<sub>t</sub>(a)* as some default value, such as 0. Conversely, as the denominator approaches infinity then, by the law of large numbers, *Q<sub>t</sub>(a)* converges to *q<sub>\*</sub>(a)*.
 
 Of course, this is merely one of the simplest estimation method and it is not necessarily the best one.
 
