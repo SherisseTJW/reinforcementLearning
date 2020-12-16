@@ -12,4 +12,5 @@ Obviously, this cannot be taken as a guide to Reinforcement Learning and there a
 
 # Sections
 - [Chapter 1: Introduction](./chap1/README.md)
-- [Chapter 2: Multi-armed Bandits](./chap2/README.md)
+- [Chapter 2A: Multi-armed Bandits (Stationary Problem)](./chap2A/README.md)
+- [Chapter 2B: Multi-armed Bandits (Non-Stationary Problem)](./chap2B/README.md)

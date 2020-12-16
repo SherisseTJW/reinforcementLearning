@@ -1,6 +1,7 @@
 # Table of Contents
 
 - [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
 - [k-armed Bandit Problem](#k-armed-bandit-problem)
 - [Action-value Methods](#action-value-methods)
   - [Sample-average Method](#sample-average-method)
@@ -15,6 +16,10 @@
 - [Incremental Implementation](#incremental-implementation)
   - [General form (Word Equation)](#general-form-word-equation)
 - [Psuedocode (Stationary Bandit Algorithm)](#psuedocode-stationary-bandit-algorithm)
+
+# Introduction
+
+In this chapter, we are going to look at different methods that one can use to evaluate how optimal an action is in helping the agent reach its goal. Following which, we are also going to look at how we can now use this knowledge of which actions are more optimal in order to help the agent select an action to do. To do this, we are going to introduce the K-armed Bandit Problem.
 
 # k-armed Bandit Problem
 
