@@ -151,4 +151,4 @@ Note also that for the incremental implementation equation, the step size parame
 
 The below psuedocode is one for a stationary bandit algorithm that uses incrementally computed sample averages and *&epsilon;*-greedy action selection.
 
-![Psuedocode for Stationary Bandit Algorithm](./img/stationaryBandit_psuedo)
+![Psuedocode for Stationary Bandit Algorithm](./img/stationaryBandit_pseudo.PNG)
