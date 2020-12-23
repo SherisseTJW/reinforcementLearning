@@ -138,6 +138,7 @@ The first instinct would likely be to maintain a record of all rewards thus far 
 In fact, by simplifying the equation, we can easily devise an incremental formula, hence the name of this section, to update the sample averages while using a much smaller, and constant, computation.
 
 ![incrementalImplementation_eqn](./img/incrementalImplementation.PNG)
+
 **R<sub>n</sub>* refers to the new average of all *n* rewards*
 
 Notice that this formula holds true even for *n* = 1, where we obtain *Q<sub>2</sub>* = *R<sub>1</sub>* for an arbitrary *Q<sub>1</sub>*. Furthermore, memory is only required for *Q<sub>n</sub>* as well as *n*.
